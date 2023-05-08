@@ -13,6 +13,17 @@ const Routes = [
         layout: MainLayout,
         routes: [
             {
+                id: 'editncc',
+                title: 'Chỉnh sửa nhà cung cấp',
+                recod:1,
+                guards: [AdminGuard],
+                component: <ADDSupplier />,
+                fallback: () =>
+                {
+                    return null;
+                }
+            },
+            {
                 id: 'addncc',
                 title: 'Tạo mới nhà cung cấp',
                 recod:1,

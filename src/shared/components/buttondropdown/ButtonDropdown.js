@@ -8,7 +8,7 @@ function ButtonDropdown(props)
     const popRef = useRef()
 
     const { Options, value, id, placeholder, onChange, children, icon, isHover } = props;
-   console.log(children);
+   
     const [isTitle, setIsTitle] = useState("");
     const [heightDropdown, setHeightDropdown] = useState("");
     const [isHovering, setIsHovering] = useState(false);

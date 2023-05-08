@@ -21,7 +21,7 @@ function Listsupplier(props)
     const dispatch = useDispatch()
   
     const { data , loading } = useSelector(state => state.App.supplierData)
-   console.log(data);
+   
     let path = history.location
     
     const [Options, setOptions] = useState([

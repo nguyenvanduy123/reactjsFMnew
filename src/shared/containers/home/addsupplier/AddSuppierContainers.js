@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import addfromcontai from "./AddSuppierContainers.module.scss";
 import FormAdd from "shared/components/formadd/FromAdd";
 import ItemInput from "shared/components/Iteminput/ItemInput";
 import Dropdown from "shared/components/Dropdown/Dropdown";
 import DropdownItem from "shared/components/fromitemdropdown/FromItemDropdown";
 import Footer from "shared/components/footer/Footer";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import AppAction from "redux/supplier/action";
 function AddsupplierContainer(props){
     let history = useHistory();
+    let location =useLocation();
     const [Options ,setOptionsDM] =useState([
         {id:1,text:"Danh mục 1"},
         {id:2,text:"Danh mục 2"},
@@ -15,7 +19,29 @@ function AddsupplierContainer(props){
         {id:4,text:"Danh mục 4"},
         {id:5,text:"Danh mục 5"},
     ])
+    const { data , detail , loading } =useSelector(state=>state.App.supplierData);
 
+    const dispatch = useDispatch();
+    let { id } = useParams();
+    //  console.log(detail);
+    useEffect(()=>{
+        if(id){
+            dispatch({
+                type:AppAction.FETCH_GET_DATA_ID,
+                payload: {
+                    data: id
+                }
+            }
+            )
+        } else {
+            dispatch({
+                type: AppAction.FETCH_GET_DATA,
+                payload: {
+                    data: {}
+                }
+            })
+        }
+    })
 return <div className={addfromcontai["addsupplier-containers"]}>
         <FormAdd title={<span>Thông Tin Nhà Cung Cấp</span>}>
             <div className={addfromcontai["fromaddsupplier"]}>

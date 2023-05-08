@@ -7,6 +7,7 @@ import AppAction from "redux/app/action";
 import FormDetail from "shared/components/formdetail/FormDetail";
 import Footer from "shared/components/footer/Footer";
 import detailscss from "./detailsupplier.module.scss";
+import RouterPath from "router/RouterPath";
 function Detailsupplier(props){
     let location = useLocation();
     let history = useHistory();
@@ -67,7 +68,8 @@ function Detailsupplier(props){
                         <button className={detailscss["footer-right-btn-detele"]}> 
                             <span className={detailscss["footer-right-text-detele"]}> Xóa</span>
                         </button>
-                        <button className={detailscss["footer-right-btn-update"]}> 
+                        <button className={detailscss["footer-right-btn-update"]}
+                        onClick={()=>{history.push(`${RouterPath["editncc"].replace("/:id","/")}${id}`) }}> 
                         <span className={detailscss["footer-right-text-update"]}>Sửa</span>
                         </button>
                     

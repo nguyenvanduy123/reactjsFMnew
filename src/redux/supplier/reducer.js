@@ -96,7 +96,7 @@ const AppReducer = (state = initialState, action) =>
                             loading:false,
                         }
                     };
-                    case AppAction.FETCH_POST_DATA:
+                    case AppAction.FETCH_GET_DATA_ID:
                         return{
                             ...state,
                                 supplierData:{
