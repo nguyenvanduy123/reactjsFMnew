@@ -1,0 +1,88 @@
+.FormDetail-content-container{
+  .footer-left{
+    
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 85px;
+        a,
+        button {
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .reset_btn{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 5px 0px 0px;
+            border: none;
+            background-color: #fff;
+            cursor: pointer;
+            &:hover{
+                background-color: #ded8d8;;
+            }
+        }
+    
+  }
+  .footer-right{
+    width: 899px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .footer-right-btn-detele {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 6px 15px;
+            gap: 10px;
+            width: 90px;
+            height: 32px;
+            border: 1px solid #FF3434;
+            border-radius: 3px;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            background-color: #FFFFFF;
+            .footer-right-text-detele{
+                color: #FF3434;
+            }
+        }
+        .footer-right-btn-update{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 6px 16px;
+            gap: 10px;
+            width: 90px;
+            height: 32px;
+            background: #138300;
+            border-radius: 3px;
+            flex: none;
+            order: 11;
+            align-self: stretch;
+            flex-grow: 0;
+            margin-left: 15px;
+            .footer-right-text-update{
+                width: 58px;
+                height: 20px;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                text-align: center;
+                letter-spacing: 0.012em;
+                color: #FFFFFF;
+                flex: none;
+                order: 0;
+                flex-grow: 0;
+            }
+        }
+  }
+  
+}
