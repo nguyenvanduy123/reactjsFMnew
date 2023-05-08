@@ -46,7 +46,7 @@ function Topbar(props)
                     title={""}
                     body={
                         <div className='pop_btn_addnew'>
-                            <button onClick={()=>{history.push(RouterPath["addncc"])}} className='reset_btn'>Tạo nhà cung cấp</button>
+                            <button onClick={()=>{history.push(RouterPath["addncc"])}} className='reset_btn-addnewncc'>Tạo nhà cung cấp</button>
                         </div>
                     }
                     style={{
@@ -55,7 +55,7 @@ function Topbar(props)
                     }}
                     isHover={false}
                 >
-                    <button className='reset_btn'>  <img src='images/icon-themmoi.svg' className='icon_ logo' /></button>
+                    <button className='reset_btn-addnew'>  <img src='images/icon-themmoi.svg' className='icon_ logo' /></button>
                 </Popover>
 
                 <h4 className='title_text'>Bán hàng</h4>
