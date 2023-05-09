@@ -11,7 +11,7 @@ import Table from 'shared/components/Table/Table';
 import ButtonDropdown from 'shared/components/buttondropdown/ButtonDropdown';
 import Popover from 'shared/components/Popover/Popover';
 import Pagination from 'shared/components/Pagination/Pagination';
-import Notification from 'shared/components/Notification/Notification';
+import Notification from 'shared/components/Notificationtest/Notificationtest';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import RouterPath from 'router/RouterPath';
 function Listsupplier(props)
@@ -58,6 +58,7 @@ function Listsupplier(props)
                 textAlign: "left"
             },
             render:(text,reid)=>{
+               
                 // return <Link to={RouterPath["detail"].replace("/:id","/")+`${reid.id}`}>{text}</Link>
                 return <span onClick={()=>{history.push(RouterPath["detail"].replace("/:id","/")+reid.id,reid)}} style={{cursor: "pointer"}}>{text}</span>
             }

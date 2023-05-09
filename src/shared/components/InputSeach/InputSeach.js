@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import "./style.scss"
+import inputse from "./InputSeach.module.scss"
 function InputSeach(props)
 {
 
 
     const { id, name, value, placeholder, onChange } = props
-    // const [Position, setPosition] = useState({ top: 0, bottom: 0, left: 0, right: 0, });
-    // const [isClick, setIsClick] = useState(false);
-    // const popRef = useRef()
+    console.log(props);
     useEffect(() =>
     {
 
@@ -16,11 +14,11 @@ function InputSeach(props)
 
 
     return (
-        <div className={`InputSeach stand_radius ${props.className ?? ""}`} id='inputsearch' style={{ ...props?.style ?? "" }}>
-            <div className='inputs_item stand_input'>
-                <div className='icon_float'><img src='images/Icon-kinhlup.svg' className='icon_' /></div>
+        <div className={`${inputse["InputSeach"]} ${props.className ?? ""}`} id={inputse['inputsearch']} style={{ ...props?.style ?? "" }}>
+            <div className= {`${inputse["inputs_item"]}`}>
+                <div className={inputse["icon_float"]}><img src='images/Icon-kinhlup.svg' className={inputse["icon_"]} /></div>
                 <input
-                    className='reset_input input_item'
+                    className={`${inputse["input_item"]}`}
                     id={id ? id : ""}
                     name={name ? name : ""}
                     placeholder={placeholder ? placeholder : ""} value={value ? value : ""}

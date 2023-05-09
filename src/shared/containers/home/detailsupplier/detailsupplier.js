@@ -8,6 +8,9 @@ import FormDetail from "shared/components/formdetail/FormDetail";
 import Footer from "shared/components/footer/Footer";
 import detailscss from "./detailsupplier.module.scss";
 import RouterPath from "router/RouterPath";
+import Notification from "shared/components/notification/Notification";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function Detailsupplier(props){
     let location = useLocation();
     let history = useHistory();
@@ -16,7 +19,7 @@ function Detailsupplier(props){
     const dispatch = useDispatch()
    
     let ncc = history.location.state
-   
+ 
     const [isChangeData, setisChangeData] = useState(false);
     const [showdetail,setshowdetail] = useState([]);
     const [record, setRecord] = useState([]);
@@ -46,8 +49,62 @@ function Detailsupplier(props){
         setshowdetail([]);
         setRecord([]);
     }
+    const [showbt,setShowbt] = useState(false)
+    const Deleterecode = (idrecod)=>{
+        
+        idrecod.deleted = true
+        // dispatch({
+        //     type: AppAction.FETCH_POST_DATA,
+        //     payload: {
+        //         data: idrecod
+        //     }
+        // })
+        setisChangeData(!isChangeData);
+        toast.info(<div className={detailscss["title-custom-notifi"]}>
+            <span className={detailscss["tite-notifi"]}>Đang xóa nhà cung cấp</span>
+            <button className={detailscss["btn-notifi-titel"]}
+            onClick={()=>
+            {
+                UndoDeleterecode(idrecod)
+            }}
+            >
+                
+                <span className={detailscss["span-btn"]}>Hoàn tác</span>
+            </button>
+        </div>,
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick:true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            icon: ({theme, type}) =>  <img src="images/icon-xacnhan.svg"/>
+            
+            
+        })
+     setTimeout(() => {
+        history.push("/nhacungcap");
+     }, 5000);   
+
+    }
+    const UndoDeleterecode = (item) =>
+    {
+        
+        // dispatch({
+        //     type: AppAction.FETCH_POST_DATA,
+        //     payload: {
+        //         data: idrecod
+        //     }
+        // })
+        toast.success(
+            "Hoàn Tác",{});
+    }
 
     return<div className={`${detailscss["FormDetail-content-container"]}`}>
+        <ToastContainer ></ToastContainer>
             <FormDetail 
                 title="Thông tin nhà cung cấp"
                 data={showdetail}
@@ -65,11 +122,19 @@ function Detailsupplier(props){
                 </div>
                 <div className={detailscss["footer-right"]}> 
                     
-                        <button className={detailscss["footer-right-btn-detele"]}> 
+                        <button className={detailscss["footer-right-btn-detele"]}
+                        onClick={
+                            ()=>{
+                                Deleterecode(ncc);
+                            }
+                        
+                        }
+                        > 
+                        
                             <span className={detailscss["footer-right-text-detele"]}> Xóa</span>
                         </button>
                         <button className={detailscss["footer-right-btn-update"]}
-                        onClick={()=>{history.push(`${RouterPath["editncc"].replace("/:id","/")}${id}`) }}> 
+                        onClick={()=>{history.push(RouterPath["editncc"].replace("/:id","/")+ncc.id,ncc)}}> 
                         <span className={detailscss["footer-right-text-update"]}>Sửa</span>
                         </button>
                     

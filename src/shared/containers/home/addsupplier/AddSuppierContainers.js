@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import addfromcontai from "./AddSuppierContainers.module.scss";
 import FormAdd from "shared/components/formadd/FromAdd";
 import ItemInput from "shared/components/Iteminput/ItemInput";
-import Dropdown from "shared/components/Dropdown/Dropdown";
+import Dropdown from "shared/components/dropdown/Dropdown";
 import DropdownItem from "shared/components/fromitemdropdown/FromItemDropdown";
 import Footer from "shared/components/footer/Footer";
 import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -19,29 +19,45 @@ function AddsupplierContainer(props){
         {id:4,text:"Danh mục 4"},
         {id:5,text:"Danh mục 5"},
     ])
-    const { data , detail , loading } =useSelector(state=>state.App.supplierData);
+    // const { data , detail , loading } =useSelector(state=>state.App.supplierData);
 
     const dispatch = useDispatch();
     let { id } = useParams();
-    //  console.log(detail);
+     const [recotdata , setrecotdata ] = useState({});
+    let recotda = history.location.state
+    
+    // useEffect(()=>{
+    //     if(id){
+    //         dispatch({
+    //             type: AppAction.FETCH_GET_DATA_ID,
+    //             payload: {
+    //                 data: id
+    //             }
+    //         })
+    //     } else {
+    //         dispatch({
+    //             type: AppAction.FETCH_GET_DATA,
+    //             payload: {
+    //                 data: {}
+    //             }
+    //         })
+    //     }
+    // },[]);
     useEffect(()=>{
-        if(id){
-            dispatch({
-                type:AppAction.FETCH_GET_DATA_ID,
-                payload: {
-                    data: id
-                }
-            }
-            )
-        } else {
-            dispatch({
-                type: AppAction.FETCH_GET_DATA,
-                payload: {
-                    data: {}
-                }
-            })
+       
+        if(recotda){
+            setrecotdata(recotda);
         }
-    })
+    },[]);
+    // useEffect(() =>
+    // {
+
+    //     if (id && detail) {
+            
+    //         setrecotdata(detail)
+    //     }
+
+    // }, [detail])
 return <div className={addfromcontai["addsupplier-containers"]}>
         <FormAdd title={<span>Thông Tin Nhà Cung Cấp</span>}>
             <div className={addfromcontai["fromaddsupplier"]}>
@@ -50,6 +66,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide ="*"
                 className="item-tenncc"
                 placeholder="Nhập tên nhà cung cấp"
+                value={recotdata.Name}
                 ></ItemInput>
                 <DropdownItem placeholder={"Danh mục"} id="danhmuc" name="danhmuc"
                 Options = {Options}
@@ -57,12 +74,14 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide="*"
                 top="199px"
                 icon={<img src='images/icon-statuscenter.svg' className='icon_danhmuc' />}
+                value={recotdata.cate}
                 ></DropdownItem>
                 <ItemInput
                 title="Số điện thoại"
                 valide ="*"
                 className="item-tenncc"
                 placeholder="Nhập số điện thoại"
+                value={recotdata.phone}
                 ></ItemInput>
             </div>
             <div className={addfromcontai["fromaddsupplier"]}>
@@ -71,6 +90,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide ="*"
                 className="item-tenncc"
                 placeholder="abc@gmail.com"
+                value={recotdata.code}
                 ></ItemInput>
                 <DropdownItem placeholder={"Nhập mã công nợ"} id="congno" name="congno"
                 Options = {Options}
@@ -78,12 +98,14 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide="*"
                 top="278px"
                 icon={<img src='images/icon-statuscenter.svg' className='icon_danhmuc' />}
+                value={recotdata.codeCN}
                 ></DropdownItem>
                 <ItemInput
                 title="Email"
                 valide ="*"
                 className="item-tenncc"
                 placeholder="abc@gmail.com"
+                value={recotdata.email}
                 ></ItemInput>
             </div>
             <div className={addfromcontai["fromaddsupplier"]}>
@@ -93,6 +115,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide="*"
                 top="359px"
                 icon={<img src='images/icon-statuscenter.svg' className='icon_danhmuc' />}
+                value={recotdata.provin}
                 ></DropdownItem>
                 <DropdownItem placeholder={"Tỉnh/ Thành phố"} id="congno" name="congno"
                 Options = {Options}
@@ -100,6 +123,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide="*"
                 top="359px"
                 icon={<img src='images/icon-statuscenter.svg' className='icon_danhmuc' />}
+                value={recotdata.distri}
                 ></DropdownItem>
                 <DropdownItem placeholder={"Quận/ Huyện"} id="congno" name="congno"
                 Options = {Options}
@@ -107,6 +131,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 valide="*"
                 top="359px"
                 icon={<img src='images/icon-statuscenter.svg' className='icon_danhmuc' />}
+                value={recotdata.war}
                 ></DropdownItem>
             </div>
             <div className={addfromcontai["fromaddsupplier"]}>
@@ -115,6 +140,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
               
                 className="item-tenncc"
                 placeholder="Nhập địa chỉ cụ thể"
+                value={recotdata.address}
                 ></ItemInput>
                 <DropdownItem placeholder={"Giao Dịch"} id="congno" name="congno"
                 Options = {Options}
@@ -122,6 +148,7 @@ return <div className={addfromcontai["addsupplier-containers"]}>
                 
                 top="438px"
                 icon={<img src='images/icon-statuscenter.svg' className='icon_danhmuc' />}
+                value={recotdata.status==2 ? "Tạm Dừng":"Giao dịch"}
                 ></DropdownItem>
                 
             </div>

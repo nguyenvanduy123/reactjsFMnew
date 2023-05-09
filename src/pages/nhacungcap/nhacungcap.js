@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "shared/components/Table/Table";
-import Search from "shared/components/Search/Search";
+import Search from "shared/components/search/Search";
 import Listsupplier from "shared/containers/home/listsupplier/listsupplier";
 import './nhacungcap.scss';
 function Nhacungcap(props){

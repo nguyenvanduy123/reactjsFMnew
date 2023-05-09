@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Dropdown from '../Dropdown/Dropdown';
-import InputSeach from '../InputSeach/InputSeach';
+import Dropdown from '../dropdown/Dropdown';
+import InputSeach from '../inputseach/InputSeach';
 // import Notification from '../Notification/Notification';
 
-import "./style.scss"
+import seach from "./Search.module.scss"
 import Popover from '../Popover/Popover';
 function Search(props)
 {
@@ -53,58 +53,67 @@ function Search(props)
     }
     const onchangeSearch = (e) =>
     {
-        setValueSearch(e)
+        setValueSearch(e.target.value)
 
+    }
+    const resetitem = ()=>{
+        setValueSearch("");
+        setValueAddress("");
+        setValueStatus("");
     }
     if(titel_chitiet == undefined ){
     return (
-        <div className={`Search stand_radius`} id='search' >
-            <div className='inputs_'>
-                <InputSeach className="search_input inputs_item"
-                    placeholder={"Tìm kiếm mã NCC, tên NCC, email, "} id="s" name="s"
+        <div className={`${seach["Search"]} ${seach["stand_radius"]}`} id={seach['search']} >
+            <div className={seach['inputs_']}>
+                <InputSeach className={`${seach["search_input"]} ${seach["inputs_item"]}`}
+                    placeholder={"Tìm kiếm mã NCC, tên NCC, email, "} id="sa" name="sa"
                     onChange={onchangeSearch}
                     value={ValueSearch}
                 />
-                <Dropdown className="_select_input inputs_item" placeholder={"Trạng thái "} id="status" name="status"
+                <Dropdown className={`${seach["_select_input"]} ${seach["inputs_item"]}`} placeholder={"Trạng thái "} id="status" name="status"
                     Options={Options}
                     onChange={onchangeStatus}
                     value={ValueStatus.text}
                     isHover={true}
-                    icon={<img src='images/icon-statuscenter.svg' className='icon_' />}
+                    icon={"images/icon-statuscenter.svg"}
                 />
 
-                <Dropdown className="_select_input inputs_item" placeholder={"Địa chỉ "} id="address" name="address"
+                <Dropdown className={`${seach["_select_input"]} ${seach["inputs_item"]}`} placeholder={"Địa chỉ "} id="address" name="address"
                     Options={Options}
                     onChange={onchangeAddress}
                     value={ValueAddress.text}
                     isHover={true}
-                    icon={<img src='images/icon-statuscenter.svg' className='icon_' />}
+                    icon={"images/icon-statuscenter.svg"}
                 />
             </div>
 
-            <div className='action_btn '>
-                <button className='btn-setup-reset'>Thiết lập lại</button>
-                <button className='btn-setup-seach'>Tìm kiếm</button>
-                <button className='btn-setting '>
-                    <img src='images/icon-caidat.svg' className='icon_btn-setting' />
+            <div className={seach["action_btn"]}>
+                <button className={seach['btn-setup-reset']}
+                onClick={()=>{
+                    resetitem();
+                }}>
+                    Thiết lập lại</button>
+                <button className={seach['btn-setup-seach']}>Tìm kiếm</button>
+                <button className={seach['btn-setting']}>
+                    <img src='images/icon-caidat.svg' className={seach['icon_btn-setting']} />
                 </button>
 
-                <button className='btn-seedetail '>
-                    <img src='images/icon-xemchitiet.svg' className='icon_btn-seedetail ' />
+                <button className={seach["btn-seedetail"]}>
+                    <img src='images/icon-xemchitiet.svg' className={seach["icon_btn-seedetail"]} />
                 </button>
             </div>
         </div>
     )
 }else{
-    return <div className={`Search stand_radius`} id='search_chitiet' >
-            <div className='inputs_chitiet'>
+    return <div className={`${seach["Search"]} ${seach["stand_radius"]}`}  id={seach["search_chitiet"]} >
+            <div className={seach['inputs_chitiet']}>
                 <Popover
                 title={""}
                 body={
-                    <div className='btn-chitiet' style={{display:"flex",flexDirection:"column"}}>
+                    <div className={seach['btn-chitiet']} style={{display:"flex",flexDirection:"column"}}>
                         {Optionss && Optionss.map((item,idel)=>{
-                            let textAlign = item.value===1?"text-success":"text-danger";
-                            return <button className='btn-status-chitiet' onClick={() =>
+                            let textAlign = item.value===1? seach["text-success"] : seach["text-danger"] ;
+                            return <button className={seach['btn-status-chitiet']} onClick={() =>
                                 {
                                     onchangeStatuss(item.value)
                                 }}>
@@ -118,8 +127,8 @@ function Search(props)
                 }
                 style={{width: "95px",height: "auto",}}
                 >
-                    <button className='btn-reset-chitiet'>
-                        <img src='images/icon_change.svg' className='icon_' style={{ width: "24px", height: "24px" }} />
+                    <button className={seach['btn-reset-chitiet']}>
+                        <img src='images/icon_change.svg' className={seach['icon_']} style={{ width: "24px", height: "24px" }} />
                         <span className=''>Trạng Thái</span>
                     </button>
                     

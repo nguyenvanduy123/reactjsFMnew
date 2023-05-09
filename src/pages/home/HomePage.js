@@ -1,5 +1,5 @@
 import Menu from 'shared/components/Menu/Menu';
-import Search from 'shared/components/Search/Search';
+import Search from 'shared/components/search/Search';
 import { Route, Switch } from 'react-router';
 import Topbar from 'shared/components/Topbar/Topbar';
 import Listsupplier from 'shared/containers/home/listsupplier/listsupplier';

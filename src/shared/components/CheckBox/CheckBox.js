@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style.scss"
+import checkbo from "./CheckBox.module.scss"
 function CheckBox(props)
 {
 
@@ -7,7 +7,7 @@ function CheckBox(props)
 
 
     return (
-        <div className="CheckBox" id='checkbox'>
+        <div className={checkbo["CheckBox"]} id={checkbo["checkbox"]}>
             {/* value={value} onChange={(e) => onChange(e, value, true)} checked={checked}  */}
             <input type="checkbox" id={id} value={value} onChange={(e) => onChange(e, value, true)} checked={checked} />
             <label htmlFor={id} style={style}>{children}</label>

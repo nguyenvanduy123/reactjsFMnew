@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import CheckBox from '../CheckBox/CheckBox';
-import Dropdown from '../Dropdown/Dropdown';
-import InputSeach from '../InputSeach/InputSeach';
+import CheckBox from "shared/components/checkbox/CheckBox"
+import Dropdown from '../dropdown/Dropdown';
+import InputSeach from '../inputseach/InputSeach';
 
 import "./style.scss"
 function Table(props)

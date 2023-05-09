@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Dropdown from '../Dropdown/Dropdown';
-import InputSeach from '../InputSeach/InputSeach';
+import Dropdown from '../dropdown/Dropdown';
+import InputSeach from '../inputseach/InputSeach';
 
 import "./style.scss"
 function Pagination(props)
@@ -65,10 +65,7 @@ function Pagination(props)
                         width: "65px",
                         padding: 0
                     }}
-                    icon={
-                        <img src='images/icon-pagi.svg' className='icon_' style={{
-                            width: "24px", height: "24px"
-                        }} />
+                    icon={"images/icon-pagi.svg"
                     }
                 />
             </div>

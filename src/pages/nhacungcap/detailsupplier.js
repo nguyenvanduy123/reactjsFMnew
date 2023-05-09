@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RouterPath from "router/RouterPath";
 import Routes from "router/Routes";
 import Detailsupplier from "shared/containers/home/detailsupplier/detailsupplier";
-import Search from "shared/components/Search/Search";
+import Search from "shared/components/search/Search";
 import detail from './detailsupplier.module.scss'; 
 
 function Detailsupplierr(props){

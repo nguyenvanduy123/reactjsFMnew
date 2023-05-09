@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import "./style.scss"
+import dropdow from "./Dropdown.module.scss";
 function Dropdown(props)
 {
 
@@ -9,6 +9,8 @@ function Dropdown(props)
     const timeoutRef = useRef(null);
 
     const { Options, value, id, placeholder, onChange, isHover, icon, top } = props;
+   
+    
     const [isTitle, setIsTitle] = useState("");
     const [heightDropdown, setHeightDropdown] = useState("");
     const [isHovering, setIsHovering] = useState(false);
@@ -42,20 +44,20 @@ function Dropdown(props)
 
     return (
         <div
-            className={`Dropdown  ${props.className ?? ""}`}
-            id='dropdown'
+            className={` ${dropdow["Dropdown"]}  ${props.className ?? ""}`}
+            id={dropdow["dropdown"]}
             style={{ ...props?.style ?? "" }}
             onClick={() => { setIsClick(!isClick) }}
             ref={popRef}
             onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         >
-            <div className='inputs_item stand_input' >
-                <div className={`icon_float ${isClick ? "is_change" : ""}`}>{icon}</div>
-                <input className='reset_input input_item' id={id ?? ""} name={props.name ?? ""} placeholder={placeholder ?? ""}
-                    value={value ?? ""}
+            <div className={`${dropdow["inputs_item"]}`} >
+                <div className={` ${dropdow["icon_float"]} ${isClick ? dropdow["is_change"] : ""}`}><img src={icon} className={dropdow['icon_drop']} /></div>
+                <input className={`${dropdow["input_item"]}`} id={id ?? ""} name={props.name ?? ""} placeholder={placeholder ?? ""}
+                    value={value ?? ""} 
                     autoComplete={("off").toString()} onChange={() => { }} />
             </div>
-            <div className={`dropdown_body stand_radius ${props.classNameBody ?? ""} ${isClick ? "show" : ""}`}
+            <div className={` ${dropdow["dropdown_body"]} ${dropdow["stand_radius"]} ${props.classNameBody ?? ""} ${isClick ? dropdow["show"] : ""}`}
                 style={{
 
                     top: !top ? Position.top : top,
@@ -65,7 +67,7 @@ function Dropdown(props)
                 <ul>
                     {Options && Options.map((item, index) =>
                     {
-                        return <li className='stand_input' key={index} onClick={() => { setIsTitle(item); onChange(item) }} >{item.text}</li>
+                        return <li className={dropdow["stand_input"]} key={index} onClick={() => { setIsTitle(item); onChange(item) }} >{item.text}</li>
                     })}
 
 
