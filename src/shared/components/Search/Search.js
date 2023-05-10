@@ -4,7 +4,7 @@ import InputSeach from '../inputseach/InputSeach';
 // import Notification from '../Notification/Notification';
 
 import seach from "./Search.module.scss"
-import Popover from '../Popover/Popover';
+import Popover from '../popover/Popover';
 function Search(props)
 {
     const {titel_chitiet} = props;
@@ -42,7 +42,7 @@ function Search(props)
 
     const onchangeStatus = (e) =>
     {
-
+console.log(e);
         setValueStatus(e)
 
     }

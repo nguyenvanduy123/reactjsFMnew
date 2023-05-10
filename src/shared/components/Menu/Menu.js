@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Menu.scss"
+import menu from "./Menu.module.scss"
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -20,24 +20,24 @@ function Menu(props)
 
     
     return (
-        <div className="Menu-bar" id='menu-bar'>
-            <div className='top-menu'>
-                <button className='reset-btn'>
-                    <img src='images/Icon-menu.svg' className='icon_btn ' />
+        <div className={menu["Menu-bar"]} id={menu['menu-bar']}>
+            <div className={menu['top-menu']}>
+                <button className={menu['reset-btn']}>
+                    <img src='images/Icon-menu.svg' className={menu['icon_btn']} />
                 </button>
-                <a className='logo-fm'>
-                    <img src='images/Logo-fm.svg' className='icon_logo' />
+                <a className={menu['logo-fm']}>
+                    <img src='images/Logo-fm.svg' className={menu['icon_logo']} />
                 </a>
             </div>
-            <ul className='menu-con'>
+            <ul className={menu['menu-con']}>
                 {Options && Options.map((item,el)=>{
-                    let active = "";
+                    let active = menu[""];
                     if (item.link == path || path.includes(item.link)) {
-                        active = "active"
+                        active = menu["active"]
                     }
-                    return<li key={item.id} className={`liitem ${active}`}>
+                    return<li key={item.id} className={` ${menu["liitem"]} ${active}`}>
                         <a href={item.link}>
-                        <img src={item.icon} className='icon_ds ' />
+                        <img src={item.icon} className={menu['icon_ds']} />
                             <span>{item.text}</span>
                         </a>
                     </li>

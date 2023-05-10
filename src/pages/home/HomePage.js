@@ -1,9 +1,9 @@
-import Menu from 'shared/components/Menu/Menu';
+import Menu from 'shared/components/menu/Menu';
 import Search from 'shared/components/search/Search';
 import { Route, Switch } from 'react-router';
-import Topbar from 'shared/components/Topbar/Topbar';
-import Listsupplier from 'shared/containers/home/listsupplier/listsupplier';
-import Nhacungcap from 'pages/nhacungcap/nhacungcap';
+import Topbar from 'shared/components/topbar/Topbar';
+import Listsupplier from 'shared/containers/home/listsuppliercontainers/ListSupplier';
+import Nhacungcap from 'pages/nhacungcap/Supplier';
 import "./style.scss"
 import RouterPath from 'router/RouterPath';
 import Routes from 'router/Routes';

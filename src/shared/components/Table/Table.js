@@ -3,28 +3,15 @@ import CheckBox from "shared/components/checkbox/CheckBox"
 import Dropdown from '../dropdown/Dropdown';
 import InputSeach from '../inputseach/InputSeach';
 
-import "./style.scss"
+import table from "./Table.module.scss";
 function Table(props)
 {
 
     const { Colums, DataRow, isboder, ischeckbox, onChangeCheck, WrapperStyle } = props
-    // const [Position, setPosition] = useState({ top: 0, bottom: 0, left: 0, right: 0, });
-    // const [isClick, setIsClick] = useState(false);
-
-    // const [Options, setOptions] = useState([
-    //     { value: 1, text: "trạng thái 1" },
-    //     { value: 2, text: "trạng thái 2" },
-    //     { value: 3, text: "trạng thái 3" }
-    // ]);
-    // const [ValueStatus, setValueStatus] = useState(false);
+    
     const [Values, setValues] = useState([]);
     const [check, setCheck] = useState(false);
-    // const [ValueSearch, setValueSearch] = useState(false);
-    // const popRef = useRef()
-    // useEffect(() =>
-    // {
-    //     onChangeCheck(Values);
-    // }, [check]);
+    
 
     const onChangeCheckbox = (e, value, isall) =>
     {
@@ -37,10 +24,6 @@ function Table(props)
                     Values.push(value)
                     result = Values
                 }
-
-
-
-
             } else {
                 result = Values.filter(item =>
                 {
@@ -68,14 +51,14 @@ function Table(props)
     }
 
     return (
-        <div className={`Table `} id='table' style={{ ...WrapperStyle }}  >
-            <table className='table_standard'
+        <div className={`Table `} id={table['table']} style={{ ...WrapperStyle }}  >
+            <table className={table['table_standard']}
                 cellPadding={0}
                 cellSpacing={0}
                 border={isboder ? 1 : 0}
             >
                 <thead>
-                    <tr className='color_standar' >
+                    <tr className={table['color_standar']} >
                         {Colums && Colums.map((item, index) =>
                         {
 

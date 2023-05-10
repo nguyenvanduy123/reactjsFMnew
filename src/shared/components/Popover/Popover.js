@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import "./style.scss"
+import popove from "./Popver.module.scss";
 function Popover(props)
 {
 
@@ -37,11 +37,11 @@ function Popover(props)
         timeoutRef.current = setTimeout(() => setIsHovering(false), 200);
     };
     return (
-        <div className={`Popover ${isHover ? "is_hover" : ""}`} id='popover' ref={popRef}
+        <div className={` ${popove["Popover"]} ${isHover ? popove["is_hover"] : ""}`} id={popove['popover']} ref={popRef}
             onClick={() => setIsClick(!isClick)}
             onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         >
-            <div className={`content_   ${isClick ? "is_click" : ""}`}
+            <div className={` ${popove["content_"]}   ${isClick ? popove["is_click"] : ""}`}
                 style={{
                     top: Position.top,
                     bottom: Position.bottom,
@@ -51,10 +51,10 @@ function Popover(props)
                 }}
 
             >
-                {title && <div className='title'>
+                {title && <div className={popove['title']}>
                     {title}
                 </div>}
-                <div className='body'>
+                <div className={popove['body']}>
                     {body}
                 </div>
             </div>

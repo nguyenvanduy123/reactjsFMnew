@@ -4,7 +4,7 @@ import HomePage from "pages/home/HomePage";
 import MainLayout from "shared/components/layout/MainLayout";
 import { AdminGuard } from "./guards/AdminGuard";
 import { GuestGuard } from "./guards/AdminGuard";
-import Nhacungcap from "pages/nhacungcap/nhacungcap";
+import Nhacungcap from "pages/nhacungcap/Supplier";
 import Detailsupplierr from "pages/nhacungcap/detailsupplier";
 import ADDSupplier from "pages/nhacungcap/Addsupplier";
 

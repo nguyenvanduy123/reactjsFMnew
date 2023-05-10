@@ -8,10 +8,7 @@ function* watchSample1()
 
     yield takeEvery(actions.FETCH_SAMPLE_1, function* (payload)
     {
-        // đạt test
-        // console.log('====================================');
-        // console.log("watchSample1", payload);
-        // console.log('====================================');
+        
         try {
             const response = yield call(() =>
                 factories.fetchSample(payload),
@@ -21,24 +18,17 @@ function* watchSample1()
                 type: actions.FETCH_SAMPLE_1_SUCCESS,
                 payload: response.Data,
             });
-            // đạt test
-            // console.log('====================================');
-            // console.log("watchSample1 response", response);
-            // console.log('====================================');
+          
         } catch (error) {
 
         } finally {
         }
     });
-    // console.log('====================================');
-    // console.log("watchSample1");
-    // console.log('====================================');
+    
 }
 function* watchSample2()
 {
-    // console.log('====================================');
-    // console.log("watchSample2");
-    // console.log('====================================');
+   
     yield takeEvery(actions.FETCH_SAMPLE_2, function* (payload)
     {
         try {

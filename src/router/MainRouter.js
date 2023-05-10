@@ -4,8 +4,8 @@ import CustomRoute from './CustomRoute';
 import { ProtectedRoute } from './ProtectedRoute';
 import RouterPath from "./RouterPath";
 import Routes from './Routes';
-import Menu from 'shared/components/Menu/Menu';
-import Topbar from 'shared/components/Topbar/Topbar';
+import Menu from 'shared/components/menu/Menu';
+import Topbar from 'shared/components/topbar/Topbar';
 
 const Layout = ({ layout: LayoutComponent, routes }) => {
     const paths = routes.map(x => (x.path));

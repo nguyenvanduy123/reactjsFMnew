@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Dropdown from '../dropdown/Dropdown';
 import InputSeach from '../inputseach/InputSeach';
 
-import "./style.scss"
+import gagin from "./Pagination.module.scss"
 function Pagination(props)
 {
 
@@ -52,10 +52,10 @@ function Pagination(props)
         setStatuspage(`Hiển thị từ ${start ?? ""} - ${end} trên tổng ${TotalRecord ?? ""}`)
     }
     return (
-        <div className={`Pagination stand_radius`} id='pagination' style={{ ...style }}>
-            <div className='chose_row_show'>
+        <div className={`Pagination stand_radius`} id={gagin['pagination']} style={{ ...style }}>
+            <div className={gagin['chose_row_show']}>
                 <span style={{ marginRight: "10px" }}>Hiển thị</span>
-                <Dropdown className="_select_input inputs_item" placeholder={"Trạng thái "} id="status" name="status"
+                <Dropdown className={gagin["_select_input"]} placeholder={"Trạng thái "} id="status" name="status"
                     Options={Options}
                     onChange={onchangeStatus}
                     value={ValueSelect.value}
@@ -69,12 +69,12 @@ function Pagination(props)
                     }
                 />
             </div>
-            {ShowStatus && <div className='_show_detail'>
+            {ShowStatus && <div className={gagin['_show_detail']}>
                 <span style={{ marginRight: "10px" }}>{Statuspage}</span>
 
             </div>
             }
-            <div className='pagination_wrrap'>
+            <div className={gagin['pagination_wrrap']}>
 
                 <ButtonPage {...props} limit={ValueSelect.value} />
 
@@ -100,7 +100,7 @@ function ButtonPage(props)
 
         for (let i = startPage; i <= endPage; i++) {
 
-            renders.push(<button className={`reset_btn item item_left ${CurrentPage == i ? "active" : ""}`}
+            renders.push(<button className={`reset_btn ${gagin["item"]} item_left ${CurrentPage == i ? gagin["active"] : ""}`}
                 onClick={(e) => OnclickButtonChangePage(e, i)}
             >
                 {i}
@@ -110,7 +110,7 @@ function ButtonPage(props)
 
     }
     return (<>
-        <button className='reset_btn item item_left' onClick={(e) => { OnclickButtonPre(e, CurrentPage <= 1 ? 1 : CurrentPage - 1) }}>
+        <button className={`reset_btn ${gagin["item"]} item_left`} onClick={(e) => { OnclickButtonPre(e, CurrentPage <= 1 ? 1 : CurrentPage - 1) }}>
             <img src='images/icon-pagi1.svg' className='icon_' style={{
                 width: "24px", height: "24px"
             }} />
@@ -120,7 +120,7 @@ function ButtonPage(props)
             return <div key={index}>{item}</div>
 
         })}
-        <button className='reset_btn item item_right' onClick={(e) => OnclickButtonNext(e, CurrentPage >= TotalPage ? TotalPage : CurrentPage + 1)}>
+        <button className={`reset_btn ${gagin["item"]} item_right`} onClick={(e) => OnclickButtonNext(e, CurrentPage >= TotalPage ? TotalPage : CurrentPage + 1)}>
             <img src='images/icon-pagi2.svg' className='icon_' style={{
                 width: "24px", height: "24px"
             }} />
